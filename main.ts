@@ -8,7 +8,7 @@
 // variables
 let loopCount: number = 4
 
-// setup 
+// setup
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
