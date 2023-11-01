@@ -20,13 +20,13 @@ input.onButtonPressed(Button.A, function () {
   neoPixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
   neoPixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
   neoPixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-  while (loopCount > -1) {
+  while ((loopCount) > -1) {
     // countdown
     basic.showString(loopCount.toString())
     neoPixelStrip.setPixelColor(loopCount, neopixel.colors(NeoPixelColors.Black))
     loopCount = loopCount - 1
     // change loopCount
-    if (loopCount <= -1) {
+    if ((loopCount) <= -1) {
       basic.showIcon(IconNames.Sad)
       basic.pause(1000)
       basic.clearScreen()
