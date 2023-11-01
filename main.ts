@@ -30,4 +30,6 @@ input.onButtonPressed(Button.A, function () {
       basic.showIcon(IconNames.Sad)
       basic.pause(1000)
       basic.clearScreen()
-  })
+    }
+  }
+})
