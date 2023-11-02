@@ -6,27 +6,36 @@
 */
 
 // variables
-let loopCount: number = 4
+let neoPixelStrip: neopixel.Strip = null
+let loopCount: number
 
 // setup
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
+neoPixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+neoPixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+neoPixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+neoPixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+neoPixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+neoPixelStrip.show()
 
 // on button press
 input.onButtonPressed(Button.A, function () {
   basic.clearScreen()
-  const neoPixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+  loopCount = 4
   neoPixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
   neoPixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
   neoPixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
   neoPixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-  while ((loopCount) > -1) {
+  neoPixelStrip.show()
+  while ((loopCount) > 0) {
     // countdown
     basic.showString(loopCount.toString())
-    neoPixelStrip.setPixelColor(loopCount, neopixel.colors(NeoPixelColors.Black))
+    neoPixelStrip.setPixelColor((loopCount - 1), neopixel.colors(NeoPixelColors.Black))
+    neoPixelStrip.show()
     loopCount = loopCount - 1
     // change loopCount
-    if ((loopCount) <= -1) {
+    if ((loopCount) <= 0) {
       basic.showIcon(IconNames.Sad)
       basic.pause(1000)
       basic.clearScreen()
